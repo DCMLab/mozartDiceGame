@@ -82,6 +82,10 @@ body {
 #reset-button::before { background-image: url("../img/buttonReset.png"); }
 #random-button::before { background-image: url("../img/buttonDice.png"); }
 
+#play-button[style*="buttonPause.png"]::before {
+    background-image: url("../img/buttonPause.png") !important;
+}
+
 #play-button::after,
 #reset-button::after,
 #random-button::after {
