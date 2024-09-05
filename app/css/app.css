@@ -39,10 +39,10 @@ body {
     width: 30vw;
     height: 30vw;
 
-    /* Creating 4x2 grid */
+    /* Creating 1x3 grid */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1vw;
     padding: 1vw;
 }
@@ -50,6 +50,9 @@ body {
 #options-container div {
     background-color: #e6d3b2;
     border-radius: 0.5vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
 }
 
 #options-container div:hover {
@@ -57,7 +60,43 @@ body {
     cursor: pointer;
 }
 
-#play-button {
+#options-container > div::before {
+    content: "";
+    grid-column: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    height: 100%;
+}
+
+#options-container > div::after {
+    grid-column: 2;
+    justify-self: start;
+}
+
+#play-button, #reset-button, #random-button {
+    grid-column: 1 / 3;
+}
+
+#play-button::before { background-image: url("../img/buttonPlay.png"); }
+#reset-button::before { background-image: url("../img/buttonReset.png"); }
+#random-button::before { background-image: url("../img/buttonDice.png"); }
+
+#play-button::after,
+#reset-button::after,
+#random-button::after {
+    font-family: "Alegreya", serif;
+    font-weight: bold;
+    color: #7d2c2c;
+    text-align: center;
+    width: 100%;
+}
+
+#play-button::after { content: "Play / Pause"; font-size: 3vw; }
+#reset-button::after { content: "Reset"; font-size: 3vw; }
+#random-button::after { content: "Auto Generate"; font-size: 3vw; }
+
+/* #play-button {
     grid-column-start: 1;
     grid-column-end: 3;
     background-size: cover;
@@ -87,7 +126,7 @@ body {
     background-size: cover;
     background-position: center;
     background-image: url("../img/buttonDice.png");
-}
+} */
 
 #play-container {
     background-color: #ebc256;

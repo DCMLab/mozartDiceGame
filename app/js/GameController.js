@@ -17,11 +17,13 @@ class GameController {
 
         // setup instrument select button
         this.instrumButton = document.getElementById('instrum-button');
-        this.instrumButton.addEventListener('click', function() {
-            app.pauseSong();
-            app.gameView.selectionContainer.style.display = 'block';
-            app.gameView.instrumContainer.style.display = 'block'
-        }.bind(this));
+        if (this.instrumButton) {   // Execute only when the corresponding button is present
+            this.instrumButton.addEventListener('click', function() {
+                app.pauseSong();
+                app.gameView.selectionContainer.style.display = 'block';
+                app.gameView.instrumContainer.style.display = 'block'
+            }.bind(this));
+        }
 
         // setup reset button
         this.resetButton = document.getElementById('reset-button');
@@ -44,30 +46,36 @@ class GameController {
 
         // switch to piano
         this.pianoButton = document.getElementById('piano-button');
-        this.pianoButton.addEventListener('click', function() {
-            app.gameModel.selectedInstrum = 'piano';
-            app.gameModel.selectedPath = app.gameModel.instruments['piano'];
-            app.updateHighlightedInstrum(this.pianoButton);
-            app.updateInstrumImage();
-        }.bind(this));
+        if (this.pianoButton) {     // Execute only when the corresponding button is present
+            this.pianoButton.addEventListener('click', function() {
+                app.gameModel.selectedInstrum = 'piano';
+                app.gameModel.selectedPath = app.gameModel.instruments['piano'];
+                app.updateHighlightedInstrum(this.pianoButton);
+                app.updateInstrumImage();
+            }.bind(this));
+        }
 
         // switch to clavinet
         this.clavButton = document.getElementById('clav-button');
-        this.clavButton.addEventListener('click', function() {
-            app.gameModel.selectedInstrum = 'clavinet';
-            app.gameModel.selectedPath = app.gameModel.instruments['clavinet'];
-            app.updateHighlightedInstrum(this.clavButton);
-            app.updateInstrumImage();
-        }.bind(this));
+        if (this.clavButton) {      // Execute only when the corresponding button is present
+            this.clavButton.addEventListener('click', function() {
+                app.gameModel.selectedInstrum = 'clavinet';
+                app.gameModel.selectedPath = app.gameModel.instruments['clavinet'];
+                app.updateHighlightedInstrum(this.clavButton);
+                app.updateInstrumImage();
+            }.bind(this));
+        }
 
         // switch to harpsichord
         this.harpsiButton = document.getElementById('harpsi-button');
-        this.harpsiButton.addEventListener('click', function() {
-            app.gameModel.selectedInstrum = 'harpsichord';
-            app.gameModel.selectedPath = app.gameModel.instruments['harpsichord'];
-            app.updateHighlightedInstrum(this.harpsiButton);
-            app.updateInstrumImage();
-        }.bind(this));
+        if (this.harpsiButton) {     // Execute only when the corresponding button is present
+            this.harpsiButton.addEventListener('click', function() {
+                app.gameModel.selectedInstrum = 'harpsichord';
+                app.gameModel.selectedPath = app.gameModel.instruments['harpsichord'];
+                app.updateHighlightedInstrum(this.harpsiButton);
+                app.updateInstrumImage();
+            }.bind(this));
+        }
 
         // adding event listeners to children divs of minuet-container
         app.gameView.minuetContainer.addEventListener('click', function(event) {
