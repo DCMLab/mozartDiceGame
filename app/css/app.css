@@ -16,7 +16,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: #7d2c2c;
+    background-color: var(--primary-color);
 }
 
 .content {
@@ -30,11 +30,11 @@ body {
     display: none;
     width: 92vw;
     height: 15vw;
-    background-color: white;
+    background-color: var(--white);
 }
 
 #options-container {
-    background-color: #ebc256;
+    background-color: var(--secondary-color);
     border-radius: 0.5vw;
     width: 30vw;
     height: 30vw;
@@ -48,7 +48,7 @@ body {
 }
 
 #options-container div {
-    background-color: #e6d3b2;
+    background-color: var(--background-color);
     border-radius: 0.5vw;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -56,7 +56,7 @@ body {
 }
 
 #options-container div:hover {
-    background-color: #d0b992;
+    background-color: var(--hover-color);
     cursor: pointer;
 }
 
@@ -91,7 +91,7 @@ body {
 #random-button::after {
     font-family: "Alegreya", serif;
     font-weight: bold;
-    color: #7d2c2c;
+    color: var(--text-color);
     text-align: center;
     width: 100%;
 }
@@ -148,19 +148,19 @@ body {
 #music-icon {
     width: 4vw;
     height: 4vw;
-    color: #e6d3b2; 
+    color: var(--background-color); 
 }
 
 #dicing-prompt {
     margin-left: 1vw;
-    color: #e6d3b2;
+    color: var(--background-color);
     font-family: 'Alegreya', serif;  
     font-size: 1.5vw; 
     white-space: nowrap;  
 }
 
 #play-container {
-    background-color: #ebc256;
+    background-color: var(--secondary-color);
     border-radius: 0.5vw;
     width: 60vw;
     height: 30vw;
@@ -174,12 +174,12 @@ body {
 }
 
 #play-container div {
-    background-color: #e6d3b2;
+    background-color: var(--background-color);
     border-radius: 0.5vw;
 }
 
 #play-container div:hover {
-    background-color: #d0b992;
+    background-color: var(--hover-color);
     cursor: pointer;
 }
 
@@ -187,7 +187,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #b53232;
+    color: var(--text-color);
     /* TODO: see if we can remove this */
     /*font-size: calc(100% + 2vw);*/
     font-size: 0;
@@ -235,7 +235,7 @@ body {
 }
 
 #selection-container div:hover {
-    background-color: #d0b992 !important;
+    background-color: var(--hover-color) !important;
 }
 
 #instrum-container, #minuet-container {
@@ -246,8 +246,8 @@ body {
 .circle {
     position: absolute;
     margin: auto;
-    background-color: #e6d3b2;
-    color: #b53232;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: 50%;
     width: 13vw;
     height: 13vw;
@@ -529,4 +529,93 @@ body {
 
 .slot-flash {
     animation: flash 0.7s ease-in-out;
+}
+
+/* color selection */
+/* Default color scheme */
+:root {
+    --primary-color: #7d2c2c;
+    --secondary-color: #ebc256;
+    --background-color: #e6d3b2;
+    --hover-color: #d0b992;
+    --text-color: #b53232;
+    --white: #ffffff;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+    --primary-color: #1E3F5A;
+    --secondary-color: #7A9E9F;
+    --background-color: #EEE6DE;
+    --text-color: #4A4238;
+    --hover-color: #d0b992;
+    --white: #ffffff;
+}
+
+/* Night Sky Theme */
+.theme-night-sky {
+    --primary-color: #2C3E50;
+    --secondary-color: #9d3b33;
+    --background-color: #ECF0F1;
+    --text-color: #34495E;
+    --hover-color: #d0b992;
+    --white: #ffffff;
+}
+
+/* Modern Theme */
+.theme-modern {
+    --primary-color: #607D8B;
+    --secondary-color: #E74C3C;
+    --background-color: #FAFAFA;
+    --text-color: #212121;
+    --hover-color: #d0b992;
+    --white: #ffffff;
+}
+
+/* Nature Theme */
+.theme-nature {
+    --primary-color: #2F4F4F;
+    --secondary-color: #8FBC8F;
+    --background-color: #F5F5DC;
+    --text-color: #556B2F;
+    --hover-color: #d0b992;
+    --white: #ffffff;
+}
+
+/* Elegant Theme */
+.theme-elegant {
+    --primary-color: #FFF8E7;
+    --secondary-color: #8E7F7F;
+    --background-color: #e6c67b;
+    --text-color: #3A3238;
+    --hover-color: #d0b992;
+    --white: #ffffff;
+}
+
+/* Soft Theme */
+.theme-soft {
+    --primary-color: #fcf5f7;
+    --secondary-color: #B18EA6;
+    --background-color: #eac7a5;
+    --text-color: #4A4A4A;
+    --hover-color: #a99782;
+    --white: #ffffff;
+}
+
+#themeSelector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    font-family: 'Alegreya', serif;
+    font-size: 14px;
+}
+
+#themeSelector:hover {
+    background-color: var(--hover-color);
 }

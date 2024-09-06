@@ -53,6 +53,16 @@
 </div>
 
 <div id="main-container">
+    <select id="themeSelector" onchange="setTheme(this.value)">
+        <option value="">Default</option>
+        <option value="theme-ocean">Ocean</option>
+        <option value="theme-night-sky">Night Sky</option>
+        <option value="theme-modern">Modern</option>
+        <option value="theme-nature">Nature</option>
+        <option value="theme-elegant">Elegant</option>
+        <option value="theme-soft">Soft</option>
+    </select>
+
     <div id="sheet-container"></div>
 
 	<div id="options-container">
@@ -93,6 +103,11 @@
 	</div>
 </div>
 
+<script>
+    function setTheme(themeName) {
+        document.documentElement.className = themeName;
+    }
+</script>
 <script language="javascript" type="text/javascript" src="js/LT.js"></script>
 
 </body>
