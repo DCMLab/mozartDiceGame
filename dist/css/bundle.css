@@ -117,7 +117,7 @@ body {
 }
 
 #random-button::after {
-  content: "Auto Generate";
+  content: "Random Dice";
   font-size: 3vw;
 }
 
@@ -152,6 +152,33 @@ body {
     background-position: center;
     background-image: url("../img/buttonDice.png");
 } */
+
+#main-container {
+  position: relative;
+}
+
+#music-icon-container {
+  position: absolute;
+  top: calc(50% - 15vw - 4vw - 1.5vw);
+  left: calc(40vw - 4vw);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+#music-icon {
+  width: 4vw;
+  height: 4vw;
+  color: #e6d3b2;
+}
+
+#dicing-prompt {
+  margin-left: 1vw;
+  color: #e6d3b2;
+  font-family: 'Alegreya', serif;
+  font-size: 1.5vw;
+  white-space: nowrap;
+}
 
 #play-container {
   background-color: #ebc256;
@@ -410,6 +437,20 @@ body {
     padding: 1.5vh;
   }
 
+  #music-icon-container {
+    top: calc(50% - 22.5vh - 6vh);
+    left: calc(50% - 22.5vh - 6vh);
+  }
+
+  #music-icon {
+    width: 6vh;
+    height: 6vh;
+  }
+
+  #dicing-prompt {
+    font-size: 2vh;
+  }
+
   #play-container {
     width: 45vh;
     height: 45vh;
@@ -522,6 +563,54 @@ body {
     top: 35vh;
     left: 38vh;
   }
+}
+
+/* add animation for music-icon */
+
+@keyframes rockNote {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(-15deg);
+  }
+
+  85% {
+    transform: rotate(0deg);
+  }
+}
+
+#music-icon .music-note {
+  transform-origin: center;
+  animation: rockNote 2.5s ease-in-out infinite;
+}
+
+@keyframes scaleScore {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.1);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  85% {
+    transform: scale(1);
+  }
+}
+
+#music-icon .music-score,
+#music-icon circle {
+  animation: scaleScore 2.5s ease-in-out infinite;
 }
 /* spinner.css is for a purely css loading screen spinner */
 
