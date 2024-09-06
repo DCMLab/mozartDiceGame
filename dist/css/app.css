@@ -551,7 +551,7 @@ body {
     --text-color: #4A4238;
     --hover-color: #d0b992;
     --white: #ffffff;
-    --highlighted: #fffbf5;
+    --highlighted: #ebc98f;
 }
 
 /* Night Sky Theme */
@@ -562,7 +562,7 @@ body {
     --text-color: #34495E;
     --hover-color: #d0b992;
     --white: #ffffff;
-    --highlighted: #fffbf5;
+    --highlighted: #ebc98f;
 }
 
 /* Modern Theme */
@@ -573,7 +573,7 @@ body {
     --text-color: #212121;
     --hover-color: #d0b992;
     --white: #ffffff;
-    --highlighted: #f2e1c5;
+    --highlighted: #ebc98f;
 }
 
 /* Nature Theme */
@@ -584,7 +584,7 @@ body {
     --text-color: #556B2F;
     --hover-color: #d0b992;
     --white: #ffffff;
-    --highlighted: #fffbf5;
+    --highlighted: #ebc98f;
 }
 
 /* Elegant Theme */
