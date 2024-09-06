@@ -35,6 +35,7 @@ class GameController {
         // setup exit button to hide the selection-container
         this.exitButton = document.getElementById('exit-button');
         this.exitButton.addEventListener('click', function() {
+            this.animateMinuetToSlot(app);
             app.reloadSong();
             app.clearPulse();
             app.stopSampler();
@@ -83,6 +84,7 @@ class GameController {
                 let pos = event.target.id.match(/(\d+)/)[0];
                 app.gameModel.selectedNotes[app.currentSlot] = app.gameModel.theScore[app.currentSlot][pos];
             }
+
         }.bind(this));
     }
 
@@ -104,6 +106,69 @@ class GameController {
     resetSong() {
         Tone.Transport.position = '0:0:0';
     }
+
+    // TO-DO: still with some displacement
+    animateMinuetToSlot(app) {
+        const selectedMinuet = document.querySelector('.pulse');
+        if (selectedMinuet && app.currentSlot !== undefined) {
+            const slot = document.getElementById('slot-' + app.currentSlot);
+            const minuetRect = selectedMinuet.getBoundingClientRect();
+            const slotRect = slot.getBoundingClientRect();
+    
+            // Calculate center points
+            const minuetCenterX = minuetRect.left + minuetRect.width / 2;
+            const minuetCenterY = minuetRect.top + minuetRect.height / 2;
+            const slotCenterX = slotRect.left + slotRect.width / 2;
+            const slotCenterY = slotRect.top + slotRect.height / 2;
+    
+            // Create a clone of the minuet for animation
+            const clone = selectedMinuet.cloneNode(true);
+            clone.classList.add('minuet-transition');
+            
+            // Set initial position (centered)
+            clone.style.position = 'fixed';
+            clone.style.top = minuetCenterY + 'px';
+            clone.style.left = minuetCenterX + 'px';
+            clone.style.width = minuetRect.width + 'px';
+            clone.style.height = minuetRect.height + 'px';
+            clone.style.margin = '0';
+            // clone.style.transform = 'translate(-50%, -50%)';
+            
+            document.body.appendChild(clone);
+    
+            // Force a reflow
+            clone.offsetHeight;
+    
+            // Animate to the slot position (centered)
+            clone.style.top = slotCenterY*0.9 + 'px';
+            clone.style.left = slotCenterX*0.9 + 'px';
+    
+            // Gradually change the shape from circle to rectangle
+            clone.style.transition = 'all 0.5s ease-in-out, border-radius 0.5s ease-in-out';
+            clone.style.borderRadius = '5%';  // Start with circle (already set in CSS)
+            
+            // Adjust size to match slot dimensions
+            clone.style.width = slotRect.width + 'px';
+            clone.style.height = slotRect.height + 'px';
+    
+            // Update the slot after animation
+            const handleTransitionEnd = function() {
+                slot.style.backgroundImage = selectedMinuet.style.backgroundImage;
+                slot.classList.add('slot-flash');
+                if (clone.parentNode) {
+                    document.body.removeChild(clone);
+                }
+                // Remove the event listener to prevent multiple calls
+                clone.removeEventListener('transitionend', handleTransitionEnd);
+            };
+    
+            clone.addEventListener('transitionend', handleTransitionEnd);
+    
+            return true; // Animation started
+        }
+        return false; // No animation performed
+    }
+    
 }
 
 module.exports = GameController;

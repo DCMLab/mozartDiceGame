@@ -265,7 +265,7 @@ body {
 }
 
 #exit-button, #mobile-button {
-    font-size: calc(100% + 3vw);
+    font-size: calc(100% + 2vw);
     top: 0; left: 0; bottom: 0; right: 0;
 }
 
@@ -508,4 +508,25 @@ body {
 
 #music-icon .music-score, #music-icon circle {
     animation: scaleScore 2.5s ease-in-out infinite;
+}
+  
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.minuet-transition {
+    position: fixed;
+    z-index: 1000;
+    transition: all 0.7s ease-in-out, border-radius 0.7s ease-in-out;
+    border-radius: 50%;  /* Ensure it starts as a circle */
+}
+
+.slot {
+    position: relative;
+    overflow: hidden;
+}
+
+.slot-flash {
+    animation: flash 0.7s ease-in-out;
 }

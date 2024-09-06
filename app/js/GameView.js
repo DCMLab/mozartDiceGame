@@ -17,6 +17,7 @@ class GameView {
 
             // event listener for clicking a single slot
             slot.addEventListener('click', function() {
+
                 app.pauseSong();
                 app.toggleLoading();
 
@@ -41,7 +42,7 @@ class GameView {
                             app.clearPulse();
                             app.stopSampler();
 
-                            minuet.classList.add('pulse');
+                            minuet.classList.add('pulse'); //
                             app.updateHighlightedMin(j);
 
                             app.gameModel.samplePlayer = new Tone.Player(app.gameModel.sampleBufs.get(j)).toMaster();
@@ -57,6 +58,7 @@ class GameView {
                     app.toggleLoading();
                 }.bind(this));
 
+                slot.style.backgroundImage = 'none';
                 this.selectionContainer.style.display = 'block';
                 this.minuetContainer.style.display = 'block';
 
