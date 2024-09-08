@@ -291,6 +291,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+  font-family: 'Alegreya', serif;
 }
 
 #piano-button {
@@ -672,7 +673,8 @@ body {
 
 .theme-night-sky {
   --primary-color: #2C3E50;
-  --secondary-color: #9d3b33;
+  --secondary-color: #973a3a;
+  /*#9d3b33;*/
   --background-color: #ECF0F1;
   --text-color: #34495E;
   --hover-color: #d0b992;
@@ -697,36 +699,34 @@ body {
 .theme-nature {
   --primary-color: #2F4F4F;
   --secondary-color: #8FBC8F;
-  --background-color: #F5F5DC;
-  --text-color: #556B2F;
-  --hover-color: #d0b992;
+  --background-color: #f5f5e4;
+  --text-color: #3f5023;
+  --hover-color: #cbd9b5;
   --white: #ffffff;
-  --highlighted: #ebc98f;
+  --highlighted: #9fb08c;
 }
 
 /* Elegant Theme */
 
 .theme-elegant {
-  --primary-color: #FFF8E7;
+  --primary-color: #f6f3ed;
   --secondary-color: #8E7F7F;
-  --background-color: #efd18d;
+  --background-color: #f7e3ba;
   --text-color: #3A3238;
   --hover-color: #d0b992;
   --white: #ffffff;
   --highlighted: #fffbf5;
 }
 
-/* Soft Theme */
-
-.theme-soft {
-  --primary-color: #fcf5f7;
-  --secondary-color: #B18EA6;
-  --background-color: #eac7a5;
-  --text-color: #4A4A4A;
-  --hover-color: #a99782;
-  --white: #ffffff;
-  --highlighted: #fffbf5;
-}
+/* .theme-soft {
+    --primary-color: #F3E5F5;
+    --secondary-color: #9C77B5;
+    --background-color: #FDFAFF;
+    --text-color: #4A4A4A;
+    --hover-color: #B39DDB;
+    --white: #ffffff;
+    --highlighted: #E1BEE7;
+  } */
 
 #themeSelector {
   position: absolute;
