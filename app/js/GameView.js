@@ -46,7 +46,7 @@ class GameView {
                             app.updateHighlightedMin(j);
 
                             app.gameModel.samplePlayer = new Tone.Player(app.gameModel.sampleBufs.get(j)).toMaster();
-                            app.gameModel.samplePlayer.start(Tone.now(), 2.0); // starts with 2 second offset
+                            app.gameModel.samplePlayer.start(Tone.now(), 2); // starts with 2 second offset
 
                             // check for end of animation
                             minuet.addEventListener('animationend', function() {

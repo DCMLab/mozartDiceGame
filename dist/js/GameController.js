@@ -1,7 +1,7 @@
 const Tone              = require('Tone');
 
 class GameController {
-    constructor(app) {
+    constructor(app) { 
         // setup play/pause button
         this.playButton = document.getElementById('play-button');
         this.playButton.addEventListener('click', function() {
@@ -104,7 +104,7 @@ class GameController {
 
     // restart song by setting transport to beginning
     resetSong() {
-        Tone.Transport.position = '0:0:0';
+        Tone.Transport.position = '0:02:05';
     }
 
     // TO-DO: still with some displacement
