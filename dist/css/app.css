@@ -520,6 +520,8 @@ body {
     z-index: 1000;
     transition: all 0.7s ease-in-out, border-radius 0.7s ease-in-out;
     border-radius: 50%;  /* Ensure it starts as a circle */
+    pointer-events: none;
+    transform-origin: center;
 }
 
 .slot {
