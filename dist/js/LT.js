@@ -36,10 +36,10 @@ class GameController {
         // setup exit button to hide the selection-container
         this.exitButton = document.getElementById('exit-button');
         this.exitButton.addEventListener('click', function() {
-            this.animateMinuetToSlot(app);
             app.reloadSong();
             app.clearPulse();
             app.stopSampler();
+            this.animateMinuetToSlot(app);
 
             app.gameView.selectionContainer.style.display = 'none';
             app.gameView.instrumContainer.style.display = 'none';
