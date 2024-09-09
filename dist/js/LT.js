@@ -307,7 +307,7 @@ class GameModel {
         this.notePaths          = [];       // path to audio files for the selected notes
         this.theScore           = [];       // array of all available measures to choose from
         this.players            = [];       // array of Tone.Players with current song
-        this.selectedInstrum    = 'piano';  // currently selected instrument
+        this.selectedInstrum    = 'harpsichord';  // currently selected instrument
         this.selectedPath       = '';       // path to the audio files for the currently selected instrument
         this.currentSlot        = -1;       // which slot is currently open
         this.sampleBufs         = null;     // bufs for sampling individual mins
