@@ -8,6 +8,15 @@ body {
   padding: 0;
 }
 
+html,
+body {
+  font-family: 'Alegreya', serif;
+}
+
+* {
+  font-family: inherit;
+}
+
 #main-container {
   display: flex;
   flex-direction: row;
@@ -204,6 +213,7 @@ body {
 }
 
 .slots {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,6 +226,36 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.clicked-slot {
+  background-image: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.clicked-slot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+  background-image: var(--bg-image);
+}
+
+.clicked-slot > * {
+  z-index: 1;
+  position: relative;
 }
 
 .playing {
@@ -254,7 +294,11 @@ body {
 }
 
 #selection-container div:hover {
-  background-color: var(--hover-color) !important;
+  background-color: var(--hover-color);
+}
+
+#selection-container div.highlight:hover {
+  background-color: var(--highlighted) !important;
 }
 
 #instrum-container,
@@ -278,10 +322,22 @@ body {
   cursor: pointer;
   /*font-size: calc(100% + 3vw);*/
   font-size: 0;
+  font-family: 'Alegreya', serif;
   /* Displaying music notation */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.circle::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -4.7vw;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2vw;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 #exit-button,
@@ -291,7 +347,13 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  font-family: 'Alegreya', serif;
+  word-break: break-word;
+  white-space: pre-wrap;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #piano-button {

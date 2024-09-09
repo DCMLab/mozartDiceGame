@@ -41,6 +41,8 @@ class GameController {
             app.stopSampler();
             this.animateMinuetToSlot(app);
 
+            document.querySelectorAll('.slots').forEach(el => el.classList.remove('clicked-slot'));
+
             app.gameView.selectionContainer.style.display = 'none';
             app.gameView.instrumContainer.style.display = 'none';
             app.gameView.minuetContainer.style.display = 'none';
@@ -456,11 +458,16 @@ class GameView {
     formPlayfield(app) {
         for (let i = 0; i < app.gameModel.selectedNotes.length; i++) {
             let slot = document.getElementById('slot-' + i);
+            let exitButton = document.getElementById('exit-button');
             slot.innerHTML = this.createPlayHTML(app.gameModel.selectedNotes[i]);
             slot.style.backgroundImage = 'url(./img/notation/' + app.gameModel.selectedNotes[i] + '.png)';
 
             // event listener for clicking a single slot
             slot.addEventListener('click', function() {
+
+                slot.innerHTML = '?';
+                slot.classList.add('clicked-slot');
+                slot.style.setProperty('--bg-image', `url(../img/notation/${app.gameModel.selectedNotes[i]}.png)`);   
 
                 app.pauseSong();
                 app.toggleLoading();
@@ -502,12 +509,13 @@ class GameView {
                     app.toggleLoading();
                 }.bind(this));
 
-                slot.style.backgroundImage = 'none';
                 this.selectionContainer.style.display = 'block';
                 this.minuetContainer.style.display = 'block';
 
                 // update the currently selected slot
                 app.currentSlot = i;
+                // update confirm(exit) button text
+                exitButton.textContent = `Confirm\nM${i + 1}`;
             }.bind(this));
 
             app.gameModel.allSlots.push(slot);

@@ -40,6 +40,8 @@ class GameController {
             app.stopSampler();
             this.animateMinuetToSlot(app);
 
+            document.querySelectorAll('.slots').forEach(el => el.classList.remove('clicked-slot'));
+
             app.gameView.selectionContainer.style.display = 'none';
             app.gameView.instrumContainer.style.display = 'none';
             app.gameView.minuetContainer.style.display = 'none';
