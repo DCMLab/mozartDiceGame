@@ -112,12 +112,12 @@ body {
 }
 
 #reset-button::after {
-  content: "Reset";
+  content: "Rewind";
   font-size: 3vw;
 }
 
 #random-button::after {
-  content: "Random Dice";
+  content: "Random Score";
   font-size: 3vw;
 }
 
