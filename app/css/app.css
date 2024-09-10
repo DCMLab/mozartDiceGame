@@ -615,10 +615,10 @@ html, body {
     --secondary-color: #7A9E9F;
     --background-color: #EEE6DE;
     --text-color: #4A4238;
-    --hover-color: #d0b992;
+    --hover-color: #bdced3;
     --white: #ffffff;
-    --highlighted: #ebc98f;
-    --spinner-color: #648d96;
+    --highlighted: #9caeb2;
+    --spinner-color: #4a6d8a;
     --icon-color: #EEE6DE;
 }
 
@@ -628,9 +628,9 @@ html, body {
     --secondary-color: #973a3a;/*#9d3b33;*/
     --background-color: #ECF0F1;
     --text-color: #34495E;
-    --hover-color: #d0b992;
+    --hover-color: #f7e2bf;
     --white: #ffffff;
-    --highlighted: #ebc98f;
+    --highlighted: #e6dcc7;
     --spinner-color: #c5594c;
     --icon-color: #ECF0F1;
 }
@@ -641,10 +641,11 @@ html, body {
     --secondary-color: #E74C3C;
     --background-color: #FAFAFA;
     --text-color: #212121;
-    --hover-color: #d0b992;
+    --hover-color: #f7e2bf;
     --white: #ffffff;
-    --highlighted: #ebc98f;
+    --highlighted: #e6dcc7;
     --spinner-color: #e47a6e;
+    --icon-color: #FAFAFA;
 }
 
 /* Nature Theme */
@@ -655,22 +656,22 @@ html, body {
     --text-color: #2d3918;
     --hover-color: #f2ebcb;
     --white: #ffffff;
-    --highlighted: #d0e1bc;
+    --highlighted: #e6dcc7;
     --spinner-color: #40984f;
     --icon-color: #eaeae5;
 }
 
 /* Elegant Theme */
 .theme-elegant {
-    --primary-color: #f8f1e4;
+    --primary-color: #f6f2ea;
     --secondary-color: #8E7F7F;
-    --background-color: #fae8c3;
+    --background-color: #f4ead5;
     --text-color: #3A3238;
-    --hover-color: #d0b992;
+    --hover-color: #e9d4b0;
     --white: #ffffff;
     --highlighted: #fffbf5;
     --spinner-color: #f8d262;
-    --icon-color: #ebd19c;
+    --icon-color: #d9ceb7;
 }
 
 /* .theme-soft {
