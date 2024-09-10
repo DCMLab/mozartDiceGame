@@ -613,11 +613,11 @@ html, body {
 .theme-ocean {
     --primary-color: #1E3F5A;
     --secondary-color: #7A9E9F;
-    --background-color: #EEE6DE;
+    --background-color: #f3e9df;
     --text-color: #4A4238;
     --hover-color: #bdced3;
     --white: #ffffff;
-    --highlighted: #9caeb2;
+    --highlighted: #fdfaf6;
     --spinner-color: #4a6d8a;
     --icon-color: #EEE6DE;
 }
@@ -628,7 +628,7 @@ html, body {
     --secondary-color: #973a3a;/*#9d3b33;*/
     --background-color: #ECF0F1;
     --text-color: #34495E;
-    --hover-color: #f7e2bf;
+    --hover-color: #fbf1df;
     --white: #ffffff;
     --highlighted: #e6dcc7;
     --spinner-color: #c5594c;
