@@ -320,24 +320,25 @@ class GameModel {
                             'clavinet'    : './audio/clavinet/',
                             'harpsichord' : './audio/harpsichord/'};
 
-        // allows tonejs to play on mobile
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            let body = document.getElementsByTagName('body')[0];
+        // Removed the conditional judgment for device detection, making the code effective for all devices.
+        // // allows tonejs to play on mobile
+        // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        let body = document.getElementsByTagName('body')[0];
 
-            let mobileContainer = document.createElement('div');
-            mobileContainer.id = 'mobile-container';
-            body.appendChild(mobileContainer);
+        let mobileContainer = document.createElement('div');
+        mobileContainer.id = 'mobile-container';
+        body.appendChild(mobileContainer);
 
-            let mobileButton = document.createElement('div');
-            mobileButton.id = 'mobile-button';
-            mobileButton.classList.add('circle');
-            mobileButton.textContent = 'Enter';
-            mobileContainer.appendChild(mobileButton);
+        let mobileButton = document.createElement('div');
+        mobileButton.id = 'mobile-button';
+        mobileButton.classList.add('circle');
+        mobileButton.textContent = 'Enter';
+        mobileContainer.appendChild(mobileButton);
 
-            StartAudioContext(Tone.context, mobileButton, function() {
-                mobileContainer.remove();
-            });
-        }
+        StartAudioContext(Tone.context, mobileButton, function() {
+            mobileContainer.remove();
+        });
+        // }
 
         this.init();
     }
