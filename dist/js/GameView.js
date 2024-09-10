@@ -50,6 +50,8 @@ class GameView {
                             minuet.classList.add('pulse'); //
                             app.updateHighlightedMin(j);
 
+                            slot.style.setProperty('--bg-image', `url(../img/notation/${app.gameModel.theScore[i][j]}.png)`);
+
                             app.gameModel.samplePlayer = new Tone.Player(app.gameModel.sampleBufs.get(j)).toMaster();
                             app.gameModel.samplePlayer.start(Tone.now(), 1.6); // starts with 2 second offset
 

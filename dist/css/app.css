@@ -156,12 +156,12 @@ html, body {
 #music-icon {
     width: 4vw;
     height: 4vw;
-    color: var(--background-color); 
+    color: var(--icon-color); 
 }
 
 #dicing-prompt {
     margin-left: 1vw;
-    color: var(--background-color);
+    color: var(--icon-color);
     font-family: 'Alegreya', serif;  
     font-size: 1.5vw; 
     white-space: nowrap;  
@@ -605,6 +605,8 @@ html, body {
     --text-color: #b53232;
     --white: #ffffff;
     --highlighted: #fffbf5;
+    --spinner-color: #d8b519;
+    --icon-color: #e6d3b2;
 }
 
 /* Ocean Theme */
@@ -616,6 +618,8 @@ html, body {
     --hover-color: #d0b992;
     --white: #ffffff;
     --highlighted: #ebc98f;
+    --spinner-color: #648d96;
+    --icon-color: #EEE6DE;
 }
 
 /* Night Sky Theme */
@@ -627,6 +631,8 @@ html, body {
     --hover-color: #d0b992;
     --white: #ffffff;
     --highlighted: #ebc98f;
+    --spinner-color: #c5594c;
+    --icon-color: #ECF0F1;
 }
 
 /* Modern Theme */
@@ -638,28 +644,33 @@ html, body {
     --hover-color: #d0b992;
     --white: #ffffff;
     --highlighted: #ebc98f;
+    --spinner-color: #e47a6e;
 }
 
 /* Nature Theme */
 .theme-nature {
     --primary-color: #2F4F4F;
     --secondary-color: #8FBC8F;
-    --background-color: #f5f5e4;
-    --text-color: #3f5023;
-    --hover-color: #cbd9b5;
+    --background-color: #eaeae5;
+    --text-color: #2d3918;
+    --hover-color: #f2ebcb;
     --white: #ffffff;
-    --highlighted: #9fb08c;
+    --highlighted: #d0e1bc;
+    --spinner-color: #40984f;
+    --icon-color: #eaeae5;
 }
 
 /* Elegant Theme */
 .theme-elegant {
-    --primary-color: #f6f3ed;
+    --primary-color: #f8f1e4;
     --secondary-color: #8E7F7F;
-    --background-color: #f7e3ba;
+    --background-color: #fae8c3;
     --text-color: #3A3238;
     --hover-color: #d0b992;
     --white: #ffffff;
     --highlighted: #fffbf5;
+    --spinner-color: #f8d262;
+    --icon-color: #ebd19c;
 }
 
 /* .theme-soft {
