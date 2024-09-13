@@ -184,6 +184,7 @@ class GameMain {
         this.randomSong();
         this.loadSong();
         this.formPlayfield();
+        this.gameModel.allSlots[0].classList.add('playing');
     }
 
     // creates the playfield for the player to interact with
@@ -281,6 +282,7 @@ class GameMain {
         this.updatePlayfield();
         this.resetSong();
         this.updateNowPlaying();
+        this.gameModel.allSlots[0].classList.add('playing');
     }
 
     // general reloading of song
@@ -292,6 +294,7 @@ class GameMain {
         this.updatePlayfield();
         this.resetSong();
         this.updateNowPlaying();
+        this.gameModel.allSlots[0].classList.add('playing');
     }
 }
 
