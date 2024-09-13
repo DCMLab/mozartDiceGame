@@ -804,6 +804,7 @@ body {
 
 #themeSelector {
   position: absolute;
+  display: none;
   top: 10px;
   right: 10px;
   z-index: 1000;
