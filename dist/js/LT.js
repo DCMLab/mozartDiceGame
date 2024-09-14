@@ -32,6 +32,7 @@
                 this.resetButton.addEventListener('click', function() {
                     // TODO: this is much more responsive but is overkill. Make simpler
                     app.reloadSong();
+                    app.playSong();
                 }.bind(this));
 
                 // setup exit button to hide the selection-container
