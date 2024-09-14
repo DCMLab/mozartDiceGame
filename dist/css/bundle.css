@@ -116,7 +116,12 @@ body {
 }
 
 #play-button::after {
-  content: "Play / Pause";
+  content: "Play";
+  font-size: 3vw;
+}
+
+#play-button.playing::after {
+  content: "Pause";
   font-size: 3vw;
 }
 

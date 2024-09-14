@@ -557,6 +557,11 @@
                     'url(\'' +
                     (!isPlaying ? './img/buttonPlay.png' : './img/buttonPause.png') +
                     '\')';
+                if (isPlaying) {
+                    playButton.classList.add('playing')
+                } else {
+                    playButton.classList.remove('playing')
+                };
             }
 
             // TODO: make this better. Seems a little excess
