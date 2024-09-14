@@ -131,7 +131,7 @@ body {
 }
 
 #random-button::after {
-  content: "Random Score";
+  content: "New Random Score";
   font-size: 3vw;
 }
 

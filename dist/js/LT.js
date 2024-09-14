@@ -520,7 +520,7 @@
                         // update the currently selected slot
                         app.currentSlot = i;
                         // update confirm(exit) button text
-                        exitButton.textContent = `Confirm\nM${i + 1}`;
+                        exitButton.textContent = `Update \nmeasure ${i + 1}`;
                     }.bind(this));
 
                     app.gameModel.allSlots.push(slot);
