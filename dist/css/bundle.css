@@ -335,12 +335,12 @@ body {
 }
 
 .circle::before {
-  content: attr(data-number);
+  content: '🎲+🎲=' attr(data-number);
   position: absolute;
   top: -4.7vw;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-weight: bold;
   color: var(--text-color);
 }
