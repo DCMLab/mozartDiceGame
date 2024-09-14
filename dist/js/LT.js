@@ -319,9 +319,7 @@ class GameModel {
         this.samplePlayer       = null;     // player that is used to play the sample minuets
 
         // object instrument choices
-        this.instruments = {'piano'       : './audio/acoustic_grand_piano/',
-                            'clavinet'    : './audio/clavinet/',
-                            'harpsichord' : './audio/harpsichord/'};
+        this.instruments = {'harpsichord' : './audio/harpsichord/'};
 
         // Removed the conditional judgment for device detection, making the code effective for all devices.
         // // allows tonejs to play on mobile
