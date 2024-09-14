@@ -121,7 +121,7 @@ body {
 }
 
 #reset-button::after {
-  content: "Rewind";
+  content: "Play Over";
   font-size: 3vw;
 }
 
