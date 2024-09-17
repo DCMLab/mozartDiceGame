@@ -335,7 +335,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.circle::before {
+:not(#mobile-button).circle::before {
   content: '🎲+🎲=' attr(data-number);
   position: absolute;
   top: -4.7vw;
