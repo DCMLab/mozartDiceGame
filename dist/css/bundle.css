@@ -329,7 +329,7 @@ body {
   font-size: 0;
   font-family: 'Alegreya', serif;
   /* Displaying music notation */
-  background-size: contain;
+  background-size: 11vw;
   background-position: center;
   background-repeat: no-repeat;
 }
