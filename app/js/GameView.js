@@ -1,4 +1,4 @@
-const Tone = require('Tone');
+//const Tone = require('Tone');
 
 class GameView {
     constructor() {
@@ -10,14 +10,16 @@ class GameView {
 
     // creates the initial playfield for the player to interact with
     formPlayfield(app) {
+        console.log("Forming playfield..." + app.gameModel.selectedNotes.length);
         for (let i = 0; i < app.gameModel.selectedNotes.length; i++) {
             let slot = document.getElementById('slot-' + i);
-            let exitButton = document.getElementById('exit-button');
+            //let exitButton = document.getElementById('exit-button');
             slot.innerHTML = this.createPlayHTML(app.gameModel.selectedNotes[i]);
             slot.style.backgroundImage = 'url(./img/notation/' + app.gameModel.selectedNotes[i] + '.png)';
+            console.log(slot.style.backgroundImage);
 
             // event listener for clicking a single slot
-            slot.addEventListener('click', function() {
+            /*slot.addEventListener('click', function() {
 
                 slot.innerHTML = '?';
                 slot.classList.add('clicked-slot');
@@ -38,7 +40,7 @@ class GameView {
                 app.gameModel.sampleBufs = new Tone.Buffers(paths, function() {
                     for (let j = 0; j < app.gameModel.theScore[i].length; j++) {
                         let minuet = document.getElementById('min-' + j);
-                        minuet.innerHTML = this.createPlayHTML(app.gameModel.theScore[i][j]);
+                        //minuet.innerHTML = this.createPlayHTML(app.gameModel.theScore[i][j]);
                         minuet.style.backgroundImage = 'url(./img/notation/' + app.gameModel.theScore[i][j] + '.png)';
 
                         // allows the user to sample individual minuets
@@ -71,8 +73,8 @@ class GameView {
                 // update the currently selected slot
                 app.currentSlot = i;
                 // update confirm(exit) button text
-                exitButton.textContent = `Confirm\nM${i + 1}`;
-            }.bind(this));
+                //exitButton.textContent = `Confirm\nM${i + 1}`;
+            }.bind(this));*/
 
             app.gameModel.allSlots.push(slot);
         }
@@ -80,6 +82,7 @@ class GameView {
 
     // refreshes the playField with new selections
     updatePlayfield(app) {
+        console.log("Updating playfield...");
         for (let i = 0; i < app.gameModel.allSlots.length; i++) {
             app.gameModel.allSlots[i].innerHTML = this.createPlayHTML(app.gameModel.selectedNotes[i]);
             let slot = document.getElementById('slot-' + i);

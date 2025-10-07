@@ -170,8 +170,9 @@ html, body {
 #play-container {
     background-color: var(--secondary-color);
     border-radius: 0.5vw;
-    width: 60vw;
-    height: 30vw;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 5vh;
 
     /* Creating 4x4 grid */
     display: grid;

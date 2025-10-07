@@ -1,5 +1,5 @@
-const Tone              = require('Tone');
-const StartAudioContext = require('StartAudioContext');
+//const Tone              = require('Tone');
+//const StartAudioContext = require('StartAudioContext');
 
 class GameModel {
     constructor() {
@@ -35,10 +35,13 @@ class GameModel {
         mobileButton.classList.add('circle');
         mobileButton.textContent = 'Enter';
         mobileContainer.appendChild(mobileButton);
-
-        StartAudioContext(Tone.context, mobileButton, function() {
+        mobileButton.addEventListener('click', function() {
             mobileContainer.remove();
         });
+
+        /*StartAudioContext(Tone.context, mobileButton, function() {
+            mobileContainer.remove();
+        });*/
         // }
 
         this.init();
@@ -85,9 +88,10 @@ class GameModel {
         for (let i = 0; i < this.theScore.length; i++) {
             this.selectedNotes.push(this.randMeasure(this.theScore[i]));
         }
+        console.log("Select new notes");
 
         // TODO: Find way to remove this and place within reloadRandom in GameMain
-        this.loadPaths();
+       // this.loadPaths();
     }
 
     // load paths based off of the selectedNotes

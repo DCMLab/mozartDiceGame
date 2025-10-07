@@ -1,22 +1,25 @@
-const Tone              = require('Tone');
+//const Tone              = require('Tone');
 
 class GameController {
     constructor(app) { 
         // setup play/pause button
-        this.playButton = document.getElementById('play-button');
+        /*this.playButton = document.getElementById('play-button');
         this.playButton.addEventListener('click', function() {
             // toggle song playing
             app.gameModel.isPlaying ? app.pauseSong() : app.playSong();
-        }.bind(this));
+        }.bind(this));*/
 
         // setup random button
-        this.randomButton = document.getElementById('random-button');
-        this.randomButton.addEventListener('click', function() {
-            app.reloadRandom();
+        /*this.randomButton = document.getElementById('random-button');*/
+        document.addEventListener('keypress', function(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault(); // Prevent default action like scrolling
+                console.log('Randomizing song...');
+                app.reloadRandom();
+            }
         }.bind(this));
-
         // setup instrument select button
-        this.instrumButton = document.getElementById('instrum-button');
+        /*this.instrumButton = document.getElementById('instrum-button');
         if (this.instrumButton) {   // Execute only when the corresponding button is present
             this.instrumButton.addEventListener('click', function() {
                 app.pauseSong();
@@ -30,10 +33,10 @@ class GameController {
         this.resetButton.addEventListener('click', function() {
             // TODO: this is much more responsive but is overkill. Make simpler
             app.reloadSong();
-        }.bind(this));
+        }.bind(this));*/
 
         // setup exit button to hide the selection-container
-        this.exitButton = document.getElementById('exit-button');
+        /*this.exitButton = document.getElementById('exit-button');
         this.exitButton.addEventListener('click', function() {
             app.reloadSong();
             app.clearPulse();
@@ -45,10 +48,10 @@ class GameController {
             app.gameView.selectionContainer.style.display = 'none';
             app.gameView.instrumContainer.style.display = 'none';
             app.gameView.minuetContainer.style.display = 'none';
-        }.bind(this));
+        }.bind(this));*/
 
         // switch to piano
-        this.pianoButton = document.getElementById('piano-button');
+        /*this.pianoButton = document.getElementById('piano-button');
         if (this.pianoButton) {     // Execute only when the corresponding button is present
             this.pianoButton.addEventListener('click', function() {
                 app.gameModel.selectedInstrum = 'piano';
@@ -87,7 +90,7 @@ class GameController {
                 app.gameModel.selectedNotes[app.currentSlot] = app.gameModel.theScore[app.currentSlot][pos];
             }
 
-        }.bind(this));
+        }.bind(this));*/
     }
 
     // play song via transport

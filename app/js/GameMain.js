@@ -10,22 +10,25 @@ class GameMain {
         this.gameController     = new GameController(this);
 
         this.init();
+        console.log("GameMain initialized");
     }
 
     // form game
     init() {
         this.randomSong();
-        this.loadSong();
+        //this.loadSong();
         this.formPlayfield();
     }
 
     // creates the playfield for the player to interact with
     formPlayfield() {
+        console.log("Forming playfield...");
         this.gameView.formPlayfield(this);
     }
 
     // refreshes the playField with new selections
     updatePlayfield() {
+        console.log("2.Updating playfield...");
         this.gameView.updatePlayfield(this);
     }
 
@@ -107,13 +110,13 @@ class GameMain {
     // reload a random song
     // TODO: Simplify with the reloadSong() method
     reloadRandom() {
-        this.pauseSong();
-        this.clearSong();
+        //this.pauseSong();
+        //this.clearSong();
         this.randomSong();
-        this.loadSong();
+        //this.loadSong();
         this.updatePlayfield();
-        this.resetSong();
-        this.updateNowPlaying();
+        //this.resetSong();
+        //this.updateNowPlaying();
     }
 
     // general reloading of song

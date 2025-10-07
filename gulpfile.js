@@ -1,42 +1,60 @@
-let gulp        = require('gulp'),
-    browserify  = require('browserify'),
-    streamify   = require('gulp-streamify'),
-    del         = require('del'),
-    preprocess  = require('gulp-preprocess'),
-    source      = require('vinyl-source-stream'),
-    concatCss   = require('gulp-concat-css'),
-    sourceFile  = './app/js/app.js',
-    destFolder  = './dist/',
-    destFile    = 'LT.js';
+const { src, dest, series, parallel } = require('gulp');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const {deleteAsync} = require('del');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
 
-gulp.task('browserify', function() {
-    let bundler = browserify(sourceFile)
-        .bundle()
-        .pipe(source(destFile))
-        .pipe(streamify(preprocess()));
+const sourceFile = './app/js/app.js';
+const destFolder = './dist/';
+const destFile = 'LT.js';
+const vinylDestination = './dist/js/';
+// Browserify JS without preprocessing
+function browserifyTask() {
+  return browserify({ entries: [sourceFile], debug: true })
+    .transform('babelify', {
+      presets: ['@babel/preset-env'],
+      sourceMaps: true,
+      global: true,      
+      ignore: [/\/core-js\//] // optional: skip known polyfills
+    })
+    .bundle()
+    .pipe(source(destFile))
+    .pipe(dest(vinylDestination));
+}
 
-    bundler = bundler.pipe(gulp.dest(destFolder + 'js/'));
+function cssTask() {
+  return src('app/css/**/*.css')
+    .pipe(concat('bundle.css'))
+    .pipe(cleanCSS()) // optional, remove if you want unminified
+    .pipe(dest(destFolder + 'css/'));
+}
 
-    return bundler;
-});
 
-gulp.task('catCss', function() {
-    gulp.src('./app/css/**/*.css')
-        .pipe(concatCss('bundle.css'))
-        .pipe(gulp.dest(destFolder + 'css/'));
-});
+// Copy static files
+function copyTask() {
+    src(['app/*', '!app/*.html']).pipe(dest(destFolder));
+    src('app/*.html').pipe(dest(destFolder));
+    src('app/js/**/*', { encoding: false }).pipe(dest(destFolder + 'js/'));
+    src('app/css/**/*', { encoding: false }).pipe(dest(destFolder + 'css/'));
+    src('app/img/**/*', { encoding: false }).pipe(dest(destFolder + 'img/'));
+    src('app/favicon.ico', { encoding: false }).pipe(dest(destFolder));
+    return src('app/audio/**/*', { encoding: false }).pipe(dest(destFolder + 'audio/'));
+}
 
-gulp.task('copy', function() {
-    gulp.src(['app/*', '!app/*.html']).pipe(gulp.dest(destFolder));
-    gulp.src('app/*.html')            .pipe(preprocess()).pipe(gulp.dest(destFolder));
-    gulp.src('app/js/**/*')           .pipe(gulp.dest(destFolder + 'js/'));
-    gulp.src('app/css/**/**')         .pipe(gulp.dest(destFolder + 'css/'));
-    gulp.src('app/img/**/*')          .pipe(gulp.dest(destFolder + 'img/'));
-    gulp.src('app/audio/**/*')        .pipe(gulp.dest(destFolder + 'audio/'));
-});
+// Clean dist folder
+function cleanTask() {
+    return deleteAsync([destFolder + '/**/*']);
+}
 
-gulp.task('clean', function() {
-    del(destFolder + '/**/*');
-});
+// Export tasks
+exports.clean = cleanTask;
+exports.browserify = browserifyTask;
+exports.copy = copyTask;
 
-gulp.task('default', ['copy', 'browserify', 'catCss']);
+exports.css = cssTask;
+
+exports.default = series(
+  cleanTask,
+  parallel(copyTask, browserifyTask, cssTask)
+);
