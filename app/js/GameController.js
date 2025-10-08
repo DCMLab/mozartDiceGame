@@ -14,9 +14,13 @@ class GameController {
         document.addEventListener('keypress', function(event) {
             if (event.code === 'Space' || event.code === 'Enter') {
                 event.preventDefault(); // Prevent default action like scrolling
-                console.log('Randomizing song...');
                 app.reloadRandom();
             }
+        }.bind(this));
+        this.playContainer = document.getElementById('play-container');
+        console.log("Play container binded" + this.playContainer);
+        this.playContainer.addEventListener('click', function() {
+            app.reloadRandom();
         }.bind(this));
         // setup instrument select button
         /*this.instrumButton = document.getElementById('instrum-button');

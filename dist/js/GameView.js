@@ -16,7 +16,6 @@ class GameView {
             //let exitButton = document.getElementById('exit-button');
             slot.innerHTML = this.createPlayHTML(app.gameModel.selectedNotes[i]);
             slot.style.backgroundImage = 'url(./img/notation/' + app.gameModel.selectedNotes[i] + '.png)';
-            console.log(slot.style.backgroundImage);
 
             // event listener for clicking a single slot
             /*slot.addEventListener('click', function() {
@@ -82,7 +81,6 @@ class GameView {
 
     // refreshes the playField with new selections
     updatePlayfield(app) {
-        console.log("Updating playfield...");
         for (let i = 0; i < app.gameModel.allSlots.length; i++) {
             app.gameModel.allSlots[i].innerHTML = this.createPlayHTML(app.gameModel.selectedNotes[i]);
             let slot = document.getElementById('slot-' + i);

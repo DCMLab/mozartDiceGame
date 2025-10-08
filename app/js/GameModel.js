@@ -88,8 +88,6 @@ class GameModel {
         for (let i = 0; i < this.theScore.length; i++) {
             this.selectedNotes.push(this.randMeasure(this.theScore[i]));
         }
-        console.log("Select new notes");
-
         // TODO: Find way to remove this and place within reloadRandom in GameMain
        // this.loadPaths();
     }

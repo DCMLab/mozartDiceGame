@@ -10,7 +10,6 @@ class GameMain {
         this.gameController     = new GameController(this);
 
         this.init();
-        console.log("GameMain initialized");
     }
 
     // form game
@@ -22,13 +21,11 @@ class GameMain {
 
     // creates the playfield for the player to interact with
     formPlayfield() {
-        console.log("Forming playfield...");
         this.gameView.formPlayfield(this);
     }
 
     // refreshes the playField with new selections
     updatePlayfield() {
-        console.log("2.Updating playfield...");
         this.gameView.updatePlayfield(this);
     }
 
